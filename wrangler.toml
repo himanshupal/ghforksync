@@ -1,0 +1,11 @@
+name = "ghforksync"
+main = "src/index.ts"
+compatibility_date = "2022-08-14"
+
+[triggers]
+crons = ["0 0,6,12,18 * * *"]
+
+[[kv_namespaces]]
+binding = "KV"
+id = "428ac477d4a94f89877e58400ee05412"
+preview_id = "428ac477d4a94f89877e58400ee05412"
