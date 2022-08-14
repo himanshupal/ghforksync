@@ -2,7 +2,7 @@ import { Env, IRepo } from './types'
 
 const apiBaseUrl = `https://api.github.com`
 
-export const createOrMigrateRepos = async (controller: ScheduledController, env: Env) => {
+export const createOrUpdateRepos = async (controller: ScheduledController, env: Env) => {
   const organization = await env.KV.get('organization')
   const nextRequestDelay = Number(await env.KV.get('nextRequestDelay'))
   const gist_id = await env.KV.get('gist_id')

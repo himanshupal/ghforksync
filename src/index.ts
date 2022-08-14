@@ -10,13 +10,13 @@
  * Learn more at https://developers.cloudflare.com/workers/runtime-apis/scheduled-event/
  */
 
-import { createOrMigrateRepos } from './fetchData'
+import { createOrUpdateRepos } from './request'
 import { Env } from './types'
 
 export default {
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
     // ctx.passThroughOnException()
-    ctx.waitUntil(createOrMigrateRepos(controller, env))
+    ctx.waitUntil(createOrUpdateRepos(controller, env))
   },
   async fetch(request: Request, env: Env, context: ExecutionContext): Promise<Response> {
     return new Response(JSON.stringify({ fulfilled: true }), {
